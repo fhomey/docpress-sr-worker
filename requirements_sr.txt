@@ -1,0 +1,9 @@
+runpod
+torch>=2.4.0
+torchvision
+numpy
+Pillow
+basicsr
+facexlib
+gfpgan
+realesrgan
