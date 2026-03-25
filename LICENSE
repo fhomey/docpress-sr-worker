@@ -1,0 +1,18 @@
+Copyright (c) 2026 Two Leaf Holding — Felipe Homeylev
+
+The integration code and pipeline configuration in this repository
+are proprietary and may not be reproduced without prior written
+permission of Two Leaf Holding.
+
+Open source components used in this project remain subject to
+their respective licences:
+- Real-ESRGAN (BSD-3-Clause)
+- BasicSR (BSD-3-Clause)
+- GFPGAN (Apache 2.0)
+- RunPod SDK (MIT)
+
+This software is part of a patent-pending system.
+Unauthorised commercial use of this pipeline may constitute
+patent infringement.
+
+For licensing: Two Leaf Holding
