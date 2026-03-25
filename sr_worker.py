@@ -132,9 +132,9 @@ def handler(job):
     except RuntimeError as e:
         # OOM fallback: gebruik kleinere tile
         print(f"[SR] OOM bij tile=512, fallback naar tile=256: {e}")
-        model.tile = 256
+        model.tile_size = 256
         output_np, _ = model.enhance(img_np, outscale=scale)
-        model.tile = 512  # herstel voor volgende request
+        model.tile_size = 512  # herstel voor volgende request
 
     output_img = Image.fromarray(output_np)
     output_w, output_h = output_img.size
@@ -160,7 +160,7 @@ def handler(job):
         "document_id":    document_id,
         "dpr":            dpr,
         "scale":          scale,
-        "tile_size":      model.tile,
+        "tile_size":      getattr(model, "tile_size", getattr(model, "tile", 512)),
         "device":         torch.cuda.get_device_name(0) if torch.cuda.is_available() else "cpu",
     }
 
