@@ -25,20 +25,13 @@ import torch
 import numpy as np
 from PIL import Image
 
-# ── Real-ESRGAN installatie (eerste keer, daarna gecached) ──────────────────
-import subprocess, sys
-
-def install_deps():
-    pkgs = [
-        "basicsr",
-        "facexlib",
-        "gfpgan",
-        "realesrgan",
-    ]
-    for pkg in pkgs:
-        subprocess.check_call([sys.executable, "-m", "pip", "install", pkg, "-q"])
-
-install_deps()
+# ── torchvision compatibiliteit patch (vereist voor basicsr op torchvision 0.16+) ──
+try:
+    import torchvision.transforms.functional_tensor  # noqa: F401
+except ImportError:
+    import torchvision.transforms.functional as _tvf
+    import sys as _sys
+    _sys.modules["torchvision.transforms.functional_tensor"] = _tvf
 
 from realesrgan import RealESRGANer
 from basicsr.archs.rrdbnet_arch import RRDBNet
