@@ -1,6 +1,4 @@
 runpod
-torch>=2.4.0
-torchvision
 numpy<2
 Pillow
 basicsr
