@@ -27,6 +27,6 @@ jobs:
           file: ./Dockerfile.sr
           platforms: linux/amd64
           push: true
-          tags: fhomey/sr-worker-docpress:latest
+          tags: fhomeydock/sr-worker-docpress:latest
           cache-from: type=gha
           cache-to: type=gha,mode=max
