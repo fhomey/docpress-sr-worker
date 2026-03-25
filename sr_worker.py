@@ -15,11 +15,9 @@ Environment variables (stel in op RunPod):
 import runpod
 import base64
 import hashlib
-import json
 import os
 import subprocess
 import time
-import tempfile
 from io import BytesIO
 
 import torch
@@ -115,8 +113,8 @@ def handler(job):
     # Validatie
     if not pixels_b64:
         return {"error": "pixels_b64 is required"}
-    if scale not in (2, 4):
-        return {"error": "scale must be 2 or 4"}
+    if scale not in (2, 4, 8):
+        return {"error": "scale must be 2, 4 or 8"}
 
     # Decodeer input afbeelding
     img_bytes = base64.b64decode(pixels_b64)
